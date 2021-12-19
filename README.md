@@ -110,7 +110,7 @@ http://127.0.0.1:8000/ <- 복사한 후, 크롬 브라우져에서 주소창에 
 
 위의 사진처럼 성공적으로 잘 된겁니다!
 
-# 비주얼 스튜디오 코드에서 파이썬 설치하기
+# 비주얼 스튜디오 코드에서 파이썬 설치하기 및 편집기 명령 설정
 
 ![비주얼스튜디오에서 파이썬 설치하기](https://user-images.githubusercontent.com/60806047/146673369-ce9388d9-c2f3-49c8-b45a-b707fd43aaf3.jpg)
 
@@ -118,6 +118,9 @@ http://127.0.0.1:8000/ <- 복사한 후, 크롬 브라우져에서 주소창에 
 
 ![비주얼스튜디오에서 파이썬 설치하기_3](https://user-images.githubusercontent.com/60806047/146673373-b30d105d-950c-4955-b82e-b8b11ae780da.JPG)
 
+![비주얼스튜디오에서 파이썬 설치하기_5](https://user-images.githubusercontent.com/60806047/146674317-3ba2774f-3b5a-4763-b961-d6b45e9c1fab.JPG)
+
+![비주얼스튜디오에서 파이썬 설치하기_4](https://user-images.githubusercontent.com/60806047/146674314-bb0540f6-582e-435d-968d-0edcb50eec46.JPG)
 
 # 파이썬 설치
 - 1. https://www.python.org/
