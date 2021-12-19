@@ -134,6 +134,44 @@ http://127.0.0.1:8000/ <- 복사한 후, 크롬 브라우져에서 주소창에 
 
 ![비주얼스튜디오에서 파이썬 설치하기_6](https://user-images.githubusercontent.com/60806047/146674729-02bb2852-1d06-4eed-8f11-0f5ec26d474a.jpg)
 
+# 장고 주요 기능들_☝
+- Functin based Views : 함수로 HTTP 요청 처리합니다!
+- Models : 데이터베이스와의 인터페이스!
+- Templates : 복잡한 문자열 조합을 보다 용이하게, 주로 HTML 문자열 조합 목적으로 사용하지만, 푸쉬 메세지나 이메일 만들 때에도 쓰면 편리하다는 점!
+- Admin 기초 : 심플한 데이터베이스 레코드 관리하는 UI!
+- Logging : 다양한 경로로 메시지 로깅!
+- Static files : 개발 목적으로의 정적인 파일 관리!
+- Messages framework : 유저에게 1회성 메세지 노출 목적!
+
+# 장고 주요 기능들_✌
+- Class Based Views : 클래스로 함수 기반 뷰 만들기
+- Forms : 입력폼 생성, 입력값 유효성 검사 및 DB로의 저장
+  - Validators & Fields & Widgets
+- 테스팅
+- 국제화 & 지역화
+- 캐싱
+- Geographic : DB의 Geo 기능 활용(PostareSQL 중심)
+- Sending Emails
+- Syndication Feeds(RSS/Atom)
+- Sitemaps
+
+# 🍒 장고 기본 앱
+- admin
+- admindocs
+- auth
+- contenttypes
+- flatpages
+- gis
+- humanize
+- messages
+- postares
+- redirects
+- sessions
+- sitemaps
+- sites
+- staticfiles
+- sydication
+
 # 😥 파이썬 설치
 - 1. https://www.python.org/
 - 2. ![python_install_1](https://user-images.githubusercontent.com/60806047/146522767-90b390a9-47dc-46e3-b350-61bb4f2ac68a.JPG)
