@@ -126,6 +126,14 @@ http://127.0.0.1:8000/ <- 복사한 후, 크롬 브라우져에서 주소창에 
 
 ![비주얼스튜디오에서 파이썬 설치하기_5](https://user-images.githubusercontent.com/60806047/146674317-3ba2774f-3b5a-4763-b961-d6b45e9c1fab.JPG)
 
+![비주얼스튜디오에서 파이썬 설치하기_7](https://user-images.githubusercontent.com/60806047/146674724-fccdf288-ccc2-479f-8521-495be5e28145.JPG)
+
+![비주얼스튜디오에서 파이썬 설치하기_8](https://user-images.githubusercontent.com/60806047/146674726-eb8d87fa-4101-42aa-b805-2b707c9ba4ea.JPG)
+
+![비주얼스튜디오에서 파이썬 설치하기_9](https://user-images.githubusercontent.com/60806047/146674727-e096e234-c9d1-4ea2-9387-d5009ba468da.JPG)
+
+![비주얼스튜디오에서 파이썬 설치하기_6](https://user-images.githubusercontent.com/60806047/146674729-02bb2852-1d06-4eed-8f11-0f5ec26d474a.jpg)
+
 # 파이썬 설치
 - 1. https://www.python.org/
 - 2. ![python_install_1](https://user-images.githubusercontent.com/60806047/146522767-90b390a9-47dc-46e3-b350-61bb4f2ac68a.JPG)
