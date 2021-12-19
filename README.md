@@ -172,6 +172,20 @@ http://127.0.0.1:8000/ <- 복사한 후, 크롬 브라우져에서 주소창에 
 - staticfiles
 - sydication
 
+# 😁 웹 애플리케이션 기본 구조는?!
+- 웹브라우저 <-> 다양한 언어/프레임워크로 만드는 웹 서버(Django) <-> 1. 데이터베이스 서버(SQLite, MySQL, PostgreSQL 등) 2. 캐시 서버(Memcached, Redis)
+
+# 💕 장고 기본 구조
+- 웹브라우저
+- URLConf : 미리 URL 별로 호출할 함수를 리스트에 등록한다.
+- 뷰(View) : URL에 맞춰 호출된 함수
+- 모델 : 파이썬 코드로 데이터베이스와 통신
+- 햄플릿 엔진 : 복잡한 문자열을 손쉽게 조합하기 위한 문자열 렌더링 엔진
+- 데이버베이스 서버 : SQLite, MySQL, PostgreSQL 등..
+- 캐시서버 : Memcached, Redis
+
+# 
+
 # 😥 파이썬 설치
 - 1. https://www.python.org/
 - 2. ![python_install_1](https://user-images.githubusercontent.com/60806047/146522767-90b390a9-47dc-46e3-b350-61bb4f2ac68a.JPG)
