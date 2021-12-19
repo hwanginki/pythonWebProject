@@ -87,7 +87,7 @@ Tornado : asynchronous networking library
 
 ![장고 프로젝트 폴터 생성](https://user-images.githubusercontent.com/60806047/146672552-0a27597b-69e3-4321-9607-c2cb3bf960f9.JPG)
 
-# � 기본 생성된 파일/디렉토리 목록 생성
+# 💆‍♀️ 기본 생성된 파일/디렉토리 목록 생성
 - cd askcompany
 - python manage.py migrate
 - python manage.py createsuperuser
