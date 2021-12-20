@@ -74,9 +74,9 @@ Tornado : asynchronous networking library
 - 인프라 : PaaS(Platform as a Service) 혹은 Serverless 플랫폼
 
 # ‼ 걱정하지마세요. 이제 위의 다운로드 하는 방법을 알려주시죠!
-- [파이썬 설치](#파이썬 설치)
-- [Visual Studio Code(툴, IDE) 설치](#Visual Studio Code(툴, IDE) 설치)
-- [장고 설치](#장고 설치)
+- [파이썬 설치](#파이썬-설치)
+- [Visual Studio Code(툴, IDE) 설치](#Visual-Studio-Code(툴,-IDE)-설치)
+- [장고 설치](#장고-설치)
 
 # 🥨 장고 프로젝트 생성하기!
 (바탕화면에 생성하고 싶으면 먼저 cd Desktop 명령어 치고 진행해주세요)
@@ -186,18 +186,18 @@ http://127.0.0.1:8000/ <- 복사한 후, 크롬 브라우져에서 주소창에 
 
 # 
 
-## 😥 파이썬 설치
+## 파이썬 설치
 - 1. https://www.python.org/
 - 2. ![python_install_1](https://user-images.githubusercontent.com/60806047/146522767-90b390a9-47dc-46e3-b350-61bb4f2ac68a.JPG)
 - 3. ![python_install_2](https://user-images.githubusercontent.com/60806047/146522796-f4bdebc8-44f5-4511-a24a-bae0bab6373b.jpg)
 - 4. Add Python 3.10 to PATH 체크한 다음에 [Install Now] 눌러야 설치 완료!!
 
-## 🙄 Visual Studio Code(툴, IDE) 설치
+## Visual Studio Code(툴, IDE) 설치
 - https://code.visualstudio.com/
 - 위의 링크 들어가셔서 빨간색 네모 누르면 다운로드 뜨면 설치하셔서 완료되면 끝입니다!
 ![VisualStudioCode_install](https://user-images.githubusercontent.com/60806047/146671957-78fb3e09-3905-46da-8280-ea27dee38780.jpg)
 
-## 🤢 장고 설치
+## 장고 설치
 - https://github.com/django/django
 - 윈도우키 누르고 검색창에 cmd 입력하시고나서, pip install django 입력하고 엔터치면 다운로드하는 모습을 볼 수 있습니다.(현재 버전 3.2.10 / 2021년 12월 19일 기준)입니다.
 
