@@ -221,10 +221,35 @@ cursor.execute("SELECT foo FROM bar WHERE baz = %s", [self.baz])
 row = cursor.fetchone()
 print(row)
 
- # 파이참에서 python manage.py runserver 명령어 후 에러 해결사항
- - ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
- - 파이참에서도 장고 설치되어 있지않기 때문에 -> pip install django
- - 장고 업데이트 -> python -m pip install --upgrade pip
+# 파이참에서 python manage.py runserver 명령어 후 에러 해결사항
+- ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+- 파이참에서도 장고 설치되어 있지않기 때문에 -> pip install django
+- 장고 업데이트 -> python -m pip install --upgrade pip
+
+# Django Model(장고 내장 ORM)
+- <데이터베이스 테이블>과 <파이썬 클래스>를 1:1로 매핑
+- 모델 클래스명은 단수형으로 지정! ex) Posts(X), Post(O) : 클래스이기에 필히 첫 글자가 대문자인 PascalCase 네이밍
+- 매핑되는 모델 클래스는 DB 테이블 필드 내역이 일치해야합니다.
+- 모델을 만들기 전에, 서비스에 맞게 데이터베이스 설계가 필수.
+- 이는 데이터베이스의 영역 -> 관계형 데이터베이스 학습도 필요.
+
+from django.db import models
+
+class Post(models.Model):
+title = models.CharField(max_length=100)
+content = models.TextField()
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
+
+# 모델 활용 순서
+- 장고 모델을 통해, 데이터베이스 형상을 관리할 경우
+ 1. 모델 클래스 작성
+ 2. 모델 클래스로부터 마이그레이션 파일 생성 -> makemigrations 명령
+ 3. 마이그레이션 파일을 데이터베이스에 적용 -> migrate 명령
+ 4. 모델 활용
+
+- 장고 외부에서, 데이터베이스 형상을 관리할 경우
+ - 데이터베이스로부터 모델 클래스 소스 생성 -> inspectdb 명령 모델 활용
 
 ## 파이썬 설치
 - 1. https://www.python.org/
