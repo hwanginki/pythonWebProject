@@ -323,13 +323,13 @@ askcompany -> "__pycache__" -> settings.py 들어가주시고
 <code>
 from django.urls.conf import include
 
-path('instagram/', include('instagram.urls')).
+path('instagram/', include('instagram.urls')),
 </pre>
 </code>
 
 ![비주얼스튜디오_9](https://user-images.githubusercontent.com/60806047/146732982-daddcaec-b15e-43be-b8cb-7b2b4290683c.JPG)
 
-models.py 이동
+- models.py 이동
 
 ![비주얼스튜디오_11](https://user-images.githubusercontent.com/60806047/146732986-afc29943-62ca-476d-adcf-73b194930348.JPG)
 <pre>
@@ -339,7 +339,7 @@ updated_at = models.DateTimeField(auto_now_add=True)
 </pre>
 </code>
 
-입력해주세요.
+- 입력해주세요.
 
 ![비주얼스튜디오_12](https://user-images.githubusercontent.com/60806047/146732987-97a9d4be-07dc-48be-9ad7-c0bc2d0854f8.JPG)
 <pre>
@@ -347,17 +347,19 @@ updated_at = models.DateTimeField(auto_now_add=True)
 python manage.py makemigrations instagram
 </pre>
 </code>
-치고 나면 사진처럼 성공적으로 된겁니다!!
+
+- 치고 나면 사진처럼 성공적으로 된겁니다!!
 
 ![비주얼스튜디오_13](https://user-images.githubusercontent.com/60806047/146732988-2b52cc3a-4b95-4489-aab3-e97a0309ceba.JPG)
 
-다시
+- 다시
 <pre>
 <code>
 python manage.py migrate instagram
 </pre>
 </code>
-OK라고 메시지 뜨면 성공적!
+
+- OK라고 메시지 뜨면 성공적!
 
 ![비주얼스튜디오_14](https://user-images.githubusercontent.com/60806047/146732991-55c246c2-fe95-4b84-a848-bb940a84fe53.JPG)
 <pre>
@@ -372,42 +374,44 @@ python manage.py sqlmigrate instagram 0001_initial
 python manage.py dbshell
 </pre>
 </code>
-쳐줍니다. 만약에 이렇게 sqlite3라고 에러 메시지가 뜨는 경우는 이와 관련 경로가 없다고 뜹니다. 이를 해결하기 위해서
+
+- 쳐줍니다. 만약에 이렇게 sqlite3라고 에러 메시지가 뜨는 경우는 이와 관련 경로가 없다고 뜹니다. 이를 해결하기 위해서
 
 https://www.sqlite.org/download.html
-위의 링크를 눌러줍시다.
+
+- 위의 링크를 눌러줍시다.
 
 ![비주얼스튜디오_16](https://user-images.githubusercontent.com/60806047/146732997-f06dcbb6-010f-41f6-a0dc-b6fcaf31cab1.JPG)
 
-빨간 네모박스에 sqlite-dll-win32-x86-33700000.zip 라는 다운로드 받으시고 
+- 빨간 네모박스에 sqlite-dll-win32-x86-33700000.zip 라는 다운로드 받으시고 
 
 ![비주얼스튜디오_17](https://user-images.githubusercontent.com/60806047/146732999-c64766c3-6268-4fd2-b65c-946f075df79d.JPG)
 
-사진처럼 압축 푸셔서 sqlite3라는 파일을 복사하셔서
+- 사진처럼 압축 푸셔서 sqlite3라는 파일을 복사하셔서
 
 ![비주얼스튜디오_18](https://user-images.githubusercontent.com/60806047/146733003-d3fc4745-294f-4053-89ad-528b142c2d79.JPG)
 
-자신이 생성했던 폴더에 붙어넣으면 됩니다!!
+- 자신이 생성했던 폴더에 붙어넣으면 됩니다!!
 
 ![비주얼스튜디오_19](https://user-images.githubusercontent.com/60806047/146733004-84d74206-9bdd-4c8d-afe3-2cdb29e97447.JPG)
 
-다시
+- 다시
+- 
 <pre>
 <code>
 python manage.py dbshell
 </pre>
 </code>
 
-치면은 밑에 나오는 sqlite> 이가 나오면 성공입니다!
+- 치면은 밑에 나오는 sqlite> 이가 나오면 성공입니다!
 
 ![비주얼스튜디오_20](https://user-images.githubusercontent.com/60806047/146733009-4315a54e-f092-42f7-8f8d-71325ac6d756.JPG)
 
-사진처럼 해보시고,
+- 사진처럼 해보시고,
 
 ![비주얼스튜디오_21](https://user-images.githubusercontent.com/60806047/146733013-8b89ea86-cef5-41cb-bdd2-ba3031c3d5ca.JPG)
 
-sql 종료 명령어는 .quit 입니다!
-
+- sql 종료 명령어는 .quit 입니다!
 
 ## 파이썬 설치
 - 1. https://www.python.org/
