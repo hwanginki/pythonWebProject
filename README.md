@@ -184,7 +184,42 @@ http://127.0.0.1:8000/ <- 복사한 후, 크롬 브라우져에서 주소창에 
 - 데이버베이스 서버 : SQLite, MySQL, PostgreSQL 등..
 - 캐시서버 : Memcached, Redis
 
-# 
+# 장고 모델(ORM_객체 관계 매핑_Object-relational mapping: 데이터베이스와 객체 지향 프로그래밍 언어 간의 호환되지 않는 데이터를 변환하는 프로그래밍 기법임!)
+- 애플리케이션의 다양한 데이터 저장방법은?
+ - 데이터베이스 : RDBMS, NoSQL 등
+ - 파일 : 로컬, 외부 정적 스토리지
+ - 캐시서버 : memcached, redis 등
+
+# 데이터베이스와 SQL
+- 데이터베이스의 종류
+ - RDBMS(관계형 데이터베이스 관리 시스템)
+  - 대표적으로 PostgreSQL, MySQL, SQLite, MS-SQL, Oracle 등..
+ - NoSQL : MongoDB, Cassandra, CouchDB, Google BigTable 등..
+
+- 데이터베이스에 쿼리하기 위한 언어 -> SQL !
+ - 같은 작업을 하더라도, 보다 적은 수의 SQL, 보다 높은 성능의 SQL
+ - 직접 SQL을 만들어내기도 하지만, ORM을 통해 SQL을 생성/실행하기도 합니다. = Not Magic.
+ - 중요! ORM을 쓰더라도, 내가 작성된 ORM코드를 통해 어떤 SQL이 실행되기 있는지, 파악을 하고 이를 최적화할 수 있어야 합니다. -> Django-debug-toolbar 적극 활용
+
+# 장고 ORM인 모델은 RDB만을 지원합니다
+- 장고 3.0.2 기준으로 제공되는 backends
+- https://github.com/django/django/tree/3.0.2/django/db/backends
+
+# 다양한 파이썬 ORM(https://github.com/django/django/tree/3.0.2/django/db/backends)
+- Relational Databases : Django Models, SQLAlchemy, Orator, Peewee, PonyORM 등
+- NoSQL Databases : django-mongodb-engine, hot-redis, MongoEngine, PynamoDB 등
+
+# 장고의 강점은 Model과 Form
+- 물론, 장고에서도 다양한 ORM, 라이브러리 사용 가능합니다. 강력한 Model과 Form!
+- 물론, 적절하게 섞어쓰실 수도 있습니다.
+- https://docs.djangoproject.com/ko/2.1/topics/db/sql/
+- 직접 SQL문자열을 조합하지마시고, 인자로 처리하세요! -> SQL Injection 방지
+- from django.db import connection, connections
+with connection.cursor() as cursor:
+cursor.execute("UPDATE bar SET foo = 1 WHERE baz = %s", [self.baz])
+cursor.execute("SELECT foo FROM bar WHERE baz = %s", [self.baz])
+row = cursor.fetchone()
+print(row)
 
 ## 파이썬 설치
 - 1. https://www.python.org/
