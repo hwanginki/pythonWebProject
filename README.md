@@ -74,9 +74,9 @@ Tornado : asynchronous networking library
 - 인프라 : PaaS(Platform as a Service) 혹은 Serverless 플랫폼
 
 # ‼ 걱정하지마세요. 이제 위의 다운로드 하는 방법을 알려주시죠!
-- 파이썬 설치
-- Visual Studio Code(툴, IDE) 설치
-- 장고 설치
+- [😥 파이썬 설치](파이썬 설치)
+- [🙄 Visual Studio Code(툴, IDE) 설치](Visual Studio Code(툴, IDE) 설치)
+- [🤢 장고 설치](장고 설치)
 
 # 🥨 장고 프로젝트 생성하기!
 (바탕화면에 생성하고 싶으면 먼저 cd Desktop 명령어 치고 진행해주세요)
