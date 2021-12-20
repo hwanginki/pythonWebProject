@@ -232,7 +232,9 @@ print(row)
 - 매핑되는 모델 클래스는 DB 테이블 필드 내역이 일치해야합니다.
 - 모델을 만들기 전에, 서비스에 맞게 데이터베이스 설계가 필수.
 - 이는 데이터베이스의 영역 -> 관계형 데이터베이스 학습도 필요.
-
+- 
+<pre>
+<code>
 from django.db import models
 
 class Post(models.Model):
@@ -240,6 +242,8 @@ title = models.CharField(max_length=100)
 content = models.TextField()
 created_at = models.DateTimeField(auto_now_add=True)
 updated_at = models.DateTimeField(auto_now=True)
+</pre>
+</code>
 
 # 모델 활용 순서
 - 장고 모델을 통해, 데이터베이스 형상을 관리할 경우
@@ -250,6 +254,34 @@ updated_at = models.DateTimeField(auto_now=True)
 
 - 장고 외부에서, 데이터베이스 형상을 관리할 경우
  - 데이터베이스로부터 모델 클래스 소스 생성 -> inspectdb 명령 모델 활용
+
+# 모델명과 DB 테이블명
+- DB 테이블명 : 디폴트 "앱이름_모델명"
+blog앱
+Post 모델 à "blog_post"
+Comment 모델 à "blog_comment"
+shop 앱
+Item 모델 à "shop_item"
+Review 모델 à "shop_review"
+커스텀 지정
+모델 Meta 클래스의 db_table 속성
+
+https://docs.djangoproject.com/ko/3.0/ref/models/options/
+
+# 새로운 모델을 만들어봅시다!
+- shop/models.py 생성 후,
+<pre>
+<code>
+from django.db import models
+
+class Item(models.Model):
+name = models.CharField(max_length=100)
+desc = models.TextField(blank=True)
+price = models.PositiveIntegerField()
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
+</code>
+</pre>
 
 ## 파이썬 설치
 - 1. https://www.python.org/
