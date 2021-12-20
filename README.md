@@ -221,6 +221,11 @@ cursor.execute("SELECT foo FROM bar WHERE baz = %s", [self.baz])
 row = cursor.fetchone()
 print(row)
 
+ # 파이참에서 python manage.py runserver 명령어 후 에러 해결사항
+ - ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+ - 파이참에서도 장고 설치되어 있지않기 때문에 -> pip install django
+ - 장고 업데이트 -> python -m pip install --upgrade pip
+
 ## 파이썬 설치
 - 1. https://www.python.org/
 - 2. ![python_install_1](https://user-images.githubusercontent.com/60806047/146522767-90b390a9-47dc-46e3-b350-61bb4f2ac68a.JPG)
