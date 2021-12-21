@@ -638,6 +638,13 @@ python manage.py shell
 - 이렇게 값을 제대로 불러오는 걸을 확인할 수 있습니다!
 - shell 종료명령어는 .exit() 입니다!
 
+# list_filter 속성 정의(지정 필드값으로 필터링 옵션 제공)
+<pre>
+<code>
+list_filter = ['is_publish']
+</code>
+</pre>
+
 ## 파이썬 설치
 - 1. https://www.python.org/
 - 2. ![python_install_1](https://user-images.githubusercontent.com/60806047/146522767-90b390a9-47dc-46e3-b350-61bb4f2ac68a.JPG)
