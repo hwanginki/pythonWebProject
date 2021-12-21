@@ -566,7 +566,9 @@ return f'<{self.pk}> {self.name}'
 ![비주얼스튜디오_model 생성_14](https://user-images.githubusercontent.com/60806047/146858851-74287dd2-3ff2-4588-8064-43d840ebf443.JPG)
 
 - models.py
+
 ![비주얼스튜디오_model 생성_10](https://user-images.githubusercontent.com/60806047/146858892-edb192a1-d4d5-437b-85d8-cca17209d6ac.JPG)
+
 - 9~10라인 작성하시면
 
 <pre>
