@@ -513,6 +513,117 @@ ORM은 SQL 쿼리를 만들어주는 역할일 뿐, 보다 성능높은 애플�
 </pre>
 
 # 장고 admin을 통한 데이터 관리(기초)
+- django admin
+ - django.contrib.admin 앱을 통해 제공
+  - 디폴트 경로 : /admin/ -> 실제 서비스에서는 다른 주소로 변경 권장!! 혹은 django-admin-honeypot 앱을 통해, 가짜 admin 페이지 노출
+ - 모델 클래스 등록을 통해, 조회/추가/수정/삭제 웹UI를 제공
+  - 서비스 초기에, 관리도구로서 사용하기에 제격
+  - 관리도구 만들 시간을 줄이고, End-User 서비스에 집중!
+ - 내부적으로 Django Form을 적극적으로 사용
+
+# 모델 클래스를 admin에 등록하기
+<pre>
+<code>
+from django.contrib import admin
+from .models import Item
+# 등록법 #1
+admin.site.register(Item) # 기본 ModelAdmin으로 동작
+# 등록법 #2
+class ItemAdmin(admin.ModelAdmin):
+pass
+admin.site.register(Item, ItemAdmin) # 지정한 ModelAdmin으로 동작
+# 등록법 #3
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+pass
+</code>
+</pre>
+
+- instargram -> models.py 이동
+![비주얼스튜디오_model 생성_4](https://user-images.githubusercontent.com/60806047/146858546-8f1fc317-00f9-4871-bfc9-b869147ad7a1.JPG)
+
+# 입력하기
+![비주얼스튜디오_model 생성_6](https://user-images.githubusercontent.com/60806047/146858650-314820fd-c569-43ff-ae31-a629ffdfcd29.JPG)
+![비주얼스튜디오_model 생성_7](https://user-images.githubusercontent.com/60806047/146858660-86a3a955-d76d-4d9c-a43a-8b84d61501bf.JPG)
+![비주얼스튜디오_model 생성_8](https://user-images.githubusercontent.com/60806047/146858668-b788eafc-e465-4b48-8e2c-ebf9bb37c548.JPG)
+![비주얼스튜디오_model 생성_9](https://user-images.githubusercontent.com/60806047/146858675-65dc93ab-742a-467b-8e01-8ff46cdc8c9e.JPG)
+
+# 모델 클래스에 __str__구현(admin모델 리스트에서 "모델명 object"를 원하는 대로 변경하기 위해
+- 객체를 출력할 때, 객체.__str__()의 리턴값을 활용
+<pre>
+<code>
+from django.db import models
+class Item(models.Model):
+name = models.CharField(max_length=100)
+desc = models.TextField(blank=True)
+price = models.PositiveIntegerField()
+is_publish = models.BooleanField(default=False)
+def __str__(self):
+return f'<{self.pk}> {self.name}'
+</code>
+<pre>
+
+![비주얼스튜디오_model 생성_14](https://user-images.githubusercontent.com/60806047/146858851-74287dd2-3ff2-4588-8064-43d840ebf443.JPG)
+
+- models.py
+![비주얼스튜디오_model 생성_10](https://user-images.githubusercontent.com/60806047/146858892-edb192a1-d4d5-437b-85d8-cca17209d6ac.JPG)
+- 9~10라인 작성하시면
+<pre>
+<code>
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+list_display = ['id', 'message', 'creadted_at', 'updated_at']
+</code>
+<pre>
+![비주얼스튜디오_model 생성_11](https://user-images.githubusercontent.com/60806047/146858918-2b43b8ba-b70e-43a8-9609-64bf0e563acb.JPG)
+- 이렇게 사진처럼 ID, MESSAGE, EREATED AT, UPDATED AT와 같은 표가 보입니다!
+
+![비주얼스튜디오_model 생성_12](https://user-images.githubusercontent.com/60806047/146859067-701d6308-27a5-4627-ba89-cba209971d40.JPG)
+<pre>
+<code>
+list_display_links = ['message']
+</code>
+</pre>
+
+![비주얼스튜디오_model 생성_17](https://user-images.githubusercontent.com/60806047/146859214-3cf4887a-458e-440b-a599-5695d0701233.JPG)
+- instargam -> models.py
+<pre>
+<code>
+def message_length(self):
+ return len(self.message)
+message_length.short_description = "메시지 글자수"
+</code>
+</pre>
+![비주얼스튜디오_model 생성_18](https://user-images.githubusercontent.com/60806047/146859291-270d65dd-3617-4d81-9814-59e45102d48b.JPG)
+- 이렇게 열의 이름이 "메시지 글자수"로 바뀌는 점을 알 수 있습니다.
+
+- instagram -> admin.py 이동
+![비주얼스튜디오_model 생성_19](https://user-images.githubusercontent.com/60806047/146859344-0cffe0d5-65d8-4bed-807d-42d678359ffc.JPG)
+<pre>
+<code>
+def message_length(self, post):
+ return f"{len(post.message)} 글자"
+</code>
+</pre>
+![비주얼스튜디오_model 생성_20](https://user-images.githubusercontent.com/60806047/146859535-228c5561-7fa7-41be-a2f3-31ee5337d1e3.JPG)
+- 1 "글자", 3 "글자" / 옆에 글자가 붙인걸 확인할 수 있어요!
+
+# shell로 명령어 확인해보세요!(선택사항)
+- 콘솔창에서 Ctrl + c 누르면 종료됩니다.
+
+![비주얼스튜디오_model 생성_21](https://user-images.githubusercontent.com/60806047/146859603-a1d0c131-d01f-4bed-bc1c-e04284e913f1.JPG)
+<pre>
+<code>
+python manage.py shell
+</code>
+</pre>
+
+![비주얼스튜디오_model 생성_22](https://user-images.githubusercontent.com/60806047/146859675-ed064ff5-634d-4863-bfc6-4f41c408be38.JPG)
+![비주얼스튜디오_model 생성_23](https://user-images.githubusercontent.com/60806047/146859683-abc05eb0-e2fb-4e58-9e4b-4b009dcd60ca.JPG)
+![비주얼스튜디오_model 생성_24](https://user-images.githubusercontent.com/60806047/146859704-af293283-5a8a-417b-98db-e26d9a511fad.JPG)
+
+- 이렇게 값을 제대로 불러오는 걸을 확인할 수 있습니다!
+- shell 종료명령어는 .exit() 입니다!
 
 ## 파이썬 설치
 - 1. https://www.python.org/
