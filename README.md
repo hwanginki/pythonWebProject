@@ -242,8 +242,8 @@ title = models.CharField(max_length=100)
 content = models.TextField()
 created_at = models.DateTimeField(auto_now_add=True)
 updated_at = models.DateTimeField(auto_now=True)
-</pre>
 </code>
+</pre>
 
 # 모델 활용 순서
 - 장고 모델을 통해, 데이터베이스 형상을 관리할 경우
@@ -288,8 +288,8 @@ updated_at = models.DateTimeField(auto_now=True)
 <pre>
 <code>
 python manage.py startapp instagram
-</pre>
 </code>
+</pre>
 
 - 위의 콘솔창에서 위의 프로젝트 생성하는 명령어를 입력해주시면
 
@@ -299,7 +299,7 @@ python manage.py startapp instagram
 
 ![비주얼스튜디오_3](https://user-images.githubusercontent.com/60806047/146732589-c0131acc-f270-485e-943b-05d50a0678cf.JPG)
 
-askcompany -> "__pycache__" -> settings.py 들어가주시고
+- askcompany -> "__pycache__" -> settings.py 들어가주시고
 
 ![비주얼스튜디오_4](https://user-images.githubusercontent.com/60806047/146732685-be422222-c041-4713-a10e-bf000a918a00.JPG)
 
@@ -324,8 +324,8 @@ askcompany -> "__pycache__" -> settings.py 들어가주시고
 from django.urls.conf import include
 
 path('instagram/', include('instagram.urls')),
-</pre>
 </code>
+</pre>
 
 ![비주얼스튜디오_9](https://user-images.githubusercontent.com/60806047/146732982-daddcaec-b15e-43be-b8cb-7b2b4290683c.JPG)
 
@@ -336,8 +336,8 @@ path('instagram/', include('instagram.urls')),
 <code>
 created_at = models.DateTimeField(auto_now_add=True)
 updated_at = models.DateTimeField(auto_now_add=True)
-</pre>
 </code>
+</pre>
 
 - 입력해주세요.
 
@@ -345,8 +345,8 @@ updated_at = models.DateTimeField(auto_now_add=True)
 <pre>
 <code>
 python manage.py makemigrations instagram
-</pre>
 </code>
+</pre>
 
 - 치고 나면 사진처럼 성공적으로 된겁니다!!
 
@@ -356,8 +356,8 @@ python manage.py makemigrations instagram
 <pre>
 <code>
 python manage.py migrate instagram
-</pre>
 </code>
+</pre>
 
 - OK라고 메시지 뜨면 성공적!
 
@@ -365,15 +365,15 @@ python manage.py migrate instagram
 <pre>
 <code>
 python manage.py sqlmigrate instagram 0001_initial
-</pre>
 </code>
+</pre>
 
 ![비주얼스튜디오_15](https://user-images.githubusercontent.com/60806047/146732994-7ee92605-fd7c-4afc-be7b-149f26c682c3.JPG)
 <pre>
 <code>
 python manage.py dbshell
-</pre>
 </code>
+</pre>
 
 - 쳐줍니다. 만약에 이렇게 sqlite3라고 에러 메시지가 뜨는 경우는 이와 관련 경로가 없다고 뜹니다. 이를 해결하기 위해서
 
@@ -396,12 +396,12 @@ https://www.sqlite.org/download.html
 ![비주얼스튜디오_19](https://user-images.githubusercontent.com/60806047/146733004-84d74206-9bdd-4c8d-afe3-2cdb29e97447.JPG)
 
 - 다시
-- 
+
 <pre>
 <code>
 python manage.py dbshell
-</pre>
 </code>
+</pre>
 
 - 치면은 밑에 나오는 sqlite> 이가 나오면 성공입니다!
 
@@ -412,6 +412,238 @@ python manage.py dbshell
 ![비주얼스튜디오_21](https://user-images.githubusercontent.com/60806047/146733013-8b89ea86-cef5-41cb-bdd2-ba3031c3d5ca.JPG)
 
 - sql 종료 명령어는 .quit 입니다!
+
+# 장고 모델 필드
+
+- 기본 지원되는 모델필드 타입(1)
+ - Primary Key: AutoField, BigAutoField
+ - 문자열 : CharField, TextField, SlugField
+ - 날짜/시간 : DateField, TimeField, DateTimeField, DurationField
+ - 참/거짓 : BooleanField, NulLBooleanField
+ - 숫자 : ItegerField, SmallIntegerField, PositivveIntegerField, PositiveSmallIntegerField, BigIntegerField, DecimalField, FloatField
+ - 파일 : BinaryField, FileField, ImageField, FillePathField
+
+https://docs.djangoproject.com/en/3.0/ref/models/fields/#field-types
+
+- 기본 지원되는 모델필드 타입(2)
+ - 이메일 : EmailField
+ - URL : URLField
+ - UUID : UUIDField
+ - 아이피 : GenericlPAddressField
+ - Relationship Types
+   - ForeignKey
+   - ManyToManyField
+   - OneToOneField
+
+다양한 커스텀 필드들 확인하고 싶으면 아래의 링크 클릭!
+https://django-model-utils.readthedocs.io/en/latest/
+
+# 모델필드들은 DB 필드타입을 반영
+ - DB에서 지원하는 필드들을 반영
+  - Varchar 필드타입 -> CharField, SlugField, URLField, EmilField 등
+ - 파이썬 데이터타입과 데이터베이스 데이터타입을 매핑
+  - AutoFiled -> int
+  - BinaryField -> bytes
+  - booleanField -> bool
+  - CharField/SlugField/URLField/EmailField -> str : 디폴트 적용된 유효성 검사 등의 차이
+ - 같은 모델필드라 할지라도, DB에 따라 다른 타입이 될 수도 있습니다.
+  - DB에 따라 지원하는 기능이 모두 달라요.
+
+# 자주 쓰는 필드 공통 옵션
+ - blank : 장고 단에서 validation시에 empty 허용 여부(default : False)
+ - null(DB 옵션) : null 허용 여부(default : False)
+ - db_index(DB 옵션) : 인덱스 필드 여부(default : False)
+ - default : 디폴트 값 지정, 혹은 값을 리턴해줄 함수 지정
+  - 사용자에게 디폴트값을 제공코자 할 때
+ - unique(DB 옵션) : 현재 테이블 내에서 유일성 여부(default : False)
+ - choices : select 박스 소스로 사용
+ - validators : validators를 수행할 함수를 다수 지정
+  - 모델 필드에 따라 고유한 validators들이 등록(ex_이메일만 받기
+ - verbose_name : 필드 레이블, 미지정시 필드명이 사용
+ - help_text : 필드 입력 도움말
+ 
+<pre>
+<code>
+from django.conf import settings
+from django.db import models
+
+class Profile(models.Model):
+ user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+ blog_url = models.URLField(blank=True)
+
+class Post(models.Model):
+ author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+ title = models.CharField(max_length=100, db_index=True)
+ slug = models.SlugField(allow_unicode=True, db_index=True) # ModelAdmin.prepopulated_fields 편리
+ desc = models.TextField(blank=True)
+ image = models.ImageField(blank=True) # Pillow 설치가 필요
+ comment_count = models.PositiveIntegerField(default=0)
+ tag_set = models.ManyToManyField('Tag', blank=True)
+ is_publish = models.BooleanField(default=False)
+ created_at = models.DateTimeField(auto_now_add=True)
+ updated_at = models.DateTimeField(auto_now=True)
+
+class Comment(models.Model):
+ author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+ post = models.ForeignKey(Post, on_delete=models.CASCADE)
+ message = models.TextField()
+ created_at = models.DateTimeField(auto_now_add=True)
+ updated_at = models.DateTimeField(auto_now=True)
+
+class Tag(models.Model):
+ name = models.CharField(max_length=50, unique=True)
+</code>
+</pre>
+
+# 강력히 권고!!
+- 설계한 데이터베이스 구조에 따라, 최대한 필드타입을 타이트하게 지정해주는 것이, 입력값 오류를 막을 수 있음.
+
+<pre>
+<code>
+blank/null 지정은 최소화해주세요. -> manage.py inspect 명령을 통해 생성된 모델 코드는 초안입니다.
+validators 들이 다양하게/타이트하게 지정됩니다.
+필요하다면, validators들을 추가로 타이트하게 지정해주세요.
+프론트엔드에서의 유효성 검사는 사용자 편의를 위해서 수행하며, 백엔드에서의 유효성 검사는 필수입니다.
+직접 유효성 로직을 만들지 마세요. 이미 잘 구성된 Features들을 가져다 쓰세요. 장고의 Form/Model을 통해 지원되며,
+django-rest-framework의 Serializer를 통해서도 지원됩니다.
+
+ORM은 SQL 쿼리를 만들어주는 역할일 뿐, 보다 성능높은 애플리케이션을
+위해서는, 사용하실려는 데이터베이스에 대한 깊은 이해가 필요합니다.
+</code>
+</pre>
+
+# 장고 admin을 통한 데이터 관리(기초)
+- django admin
+ - django.contrib.admin 앱을 통해 제공
+  - 디폴트 경로 : /admin/ -> 실제 서비스에서는 다른 주소로 변경 권장!! 혹은 django-admin-honeypot 앱을 통해, 가짜 admin 페이지 노출
+ - 모델 클래스 등록을 통해, 조회/추가/수정/삭제 웹UI를 제공
+  - 서비스 초기에, 관리도구로서 사용하기에 제격
+  - 관리도구 만들 시간을 줄이고, End-User 서비스에 집중!
+ - 내부적으로 Django Form을 적극적으로 사용
+
+# 모델 클래스를 admin에 등록하기
+<pre>
+<code>
+from django.contrib import admin
+from .models import Item
+# 등록법 #1
+admin.site.register(Item) # 기본 ModelAdmin으로 동작
+# 등록법 #2
+class ItemAdmin(admin.ModelAdmin):
+pass
+admin.site.register(Item, ItemAdmin) # 지정한 ModelAdmin으로 동작
+# 등록법 #3
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+pass
+</code>
+</pre>
+
+- instargram -> models.py 이동
+![비주얼스튜디오_model 생성_4](https://user-images.githubusercontent.com/60806047/146858546-8f1fc317-00f9-4871-bfc9-b869147ad7a1.JPG)
+
+# 입력하기
+![비주얼스튜디오_model 생성_6](https://user-images.githubusercontent.com/60806047/146858650-314820fd-c569-43ff-ae31-a629ffdfcd29.JPG)
+![비주얼스튜디오_model 생성_7](https://user-images.githubusercontent.com/60806047/146858660-86a3a955-d76d-4d9c-a43a-8b84d61501bf.JPG)
+![비주얼스튜디오_model 생성_8](https://user-images.githubusercontent.com/60806047/146858668-b788eafc-e465-4b48-8e2c-ebf9bb37c548.JPG)
+![비주얼스튜디오_model 생성_9](https://user-images.githubusercontent.com/60806047/146858675-65dc93ab-742a-467b-8e01-8ff46cdc8c9e.JPG)
+
+# 모델 클래스에 __str__구현(admin모델 리스트에서 "모델명 object"를 원하는 대로 변경하기 위해
+- 객체를 출력할 때, 객체.__str__()의 리턴값을 활용
+<pre>
+<code>
+from django.db import models
+class Item(models.Model):
+name = models.CharField(max_length=100)
+desc = models.TextField(blank=True)
+price = models.PositiveIntegerField()
+is_publish = models.BooleanField(default=False)
+def __str__(self):
+return f'<{self.pk}> {self.name}'
+</code>
+</pre>
+
+![비주얼스튜디오_model 생성_14](https://user-images.githubusercontent.com/60806047/146858851-74287dd2-3ff2-4588-8064-43d840ebf443.JPG)
+
+- models.py
+
+![비주얼스튜디오_model 생성_10](https://user-images.githubusercontent.com/60806047/146858892-edb192a1-d4d5-437b-85d8-cca17209d6ac.JPG)
+
+- 9~10라인 작성하시면
+
+<pre>
+<code>
+@admin.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+list_display = ['id', 'message', 'creadted_at', 'updated_at']
+</code>
+</pre>
+
+![비주얼스튜디오_model 생성_11](https://user-images.githubusercontent.com/60806047/146858918-2b43b8ba-b70e-43a8-9609-64bf0e563acb.JPG)
+
+- 이렇게 사진처럼 ID, MESSAGE, EREATED AT, UPDATED AT와 같은 표가 보입니다!
+
+![비주얼스튜디오_model 생성_12](https://user-images.githubusercontent.com/60806047/146859067-701d6308-27a5-4627-ba89-cba209971d40.JPG)
+
+<pre>
+<code>
+list_display_links = ['message']
+</code>
+</pre>
+
+![비주얼스튜디오_model 생성_17](https://user-images.githubusercontent.com/60806047/146859214-3cf4887a-458e-440b-a599-5695d0701233.JPG)
+- instargam -> models.py
+
+<pre>
+<code>
+def message_length(self):
+ return len(self.message)
+message_length.short_description = "메시지 글자수"
+</code>
+</pre>
+
+![비주얼스튜디오_model 생성_18](https://user-images.githubusercontent.com/60806047/146859291-270d65dd-3617-4d81-9814-59e45102d48b.JPG)
+
+- 이렇게 열의 이름이 "메시지 글자수"로 바뀌는 점을 알 수 있습니다.
+
+- instagram -> admin.py 이동
+
+![비주얼스튜디오_model 생성_19](https://user-images.githubusercontent.com/60806047/146859344-0cffe0d5-65d8-4bed-807d-42d678359ffc.JPG)
+
+<pre>
+<code>
+def message_length(self, post):
+ return f"{len(post.message)} 글자"
+</code>
+</pre>
+
+![비주얼스튜디오_model 생성_20](https://user-images.githubusercontent.com/60806047/146859535-228c5561-7fa7-41be-a2f3-31ee5337d1e3.JPG)
+- 1 "글자", 3 "글자" / 옆에 글자가 붙인걸 확인할 수 있어요!
+
+# shell로 명령어 확인해보세요!(선택사항)
+- 콘솔창에서 Ctrl + c 누르면 종료됩니다.
+
+![비주얼스튜디오_model 생성_21](https://user-images.githubusercontent.com/60806047/146859603-a1d0c131-d01f-4bed-bc1c-e04284e913f1.JPG)
+
+<pre>
+<code>
+python manage.py shell
+</code>
+</pre>
+
+![비주얼스튜디오_model 생성_22](https://user-images.githubusercontent.com/60806047/146859675-ed064ff5-634d-4863-bfc6-4f41c408be38.JPG)
+![비주얼스튜디오_model 생성_23](https://user-images.githubusercontent.com/60806047/146859683-abc05eb0-e2fb-4e58-9e4b-4b009dcd60ca.JPG)
+![비주얼스튜디오_model 생성_24](https://user-images.githubusercontent.com/60806047/146859704-af293283-5a8a-417b-98db-e26d9a511fad.JPG)
+
+- 이렇게 값을 제대로 불러오는 걸을 확인할 수 있습니다!
+- shell 종료명령어는 .exit() 입니다!
+
+# list_filter 속성 정의(지정 필드값으로 필터링 옵션 제공)
+<pre>
+<code>
+list_filter = ['is_publish']
+</code>
+</pre>
 
 ## 파이썬 설치
 - 1. https://www.python.org/
