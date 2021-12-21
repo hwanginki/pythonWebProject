@@ -575,11 +575,14 @@ return f'<{self.pk}> {self.name}'
 class ItemAdmin(admin.ModelAdmin):
 list_display = ['id', 'message', 'creadted_at', 'updated_at']
 </code>
-<pre>
+</pre>
+
 ![비주얼스튜디오_model 생성_11](https://user-images.githubusercontent.com/60806047/146858918-2b43b8ba-b70e-43a8-9609-64bf0e563acb.JPG)
+
 - 이렇게 사진처럼 ID, MESSAGE, EREATED AT, UPDATED AT와 같은 표가 보입니다!
 
 ![비주얼스튜디오_model 생성_12](https://user-images.githubusercontent.com/60806047/146859067-701d6308-27a5-4627-ba89-cba209971d40.JPG)
+
 <pre>
 <code>
 list_display_links = ['message']
@@ -588,6 +591,7 @@ list_display_links = ['message']
 
 ![비주얼스튜디오_model 생성_17](https://user-images.githubusercontent.com/60806047/146859214-3cf4887a-458e-440b-a599-5695d0701233.JPG)
 - instargam -> models.py
+
 <pre>
 <code>
 def message_length(self):
@@ -595,17 +599,22 @@ def message_length(self):
 message_length.short_description = "메시지 글자수"
 </code>
 </pre>
+
 ![비주얼스튜디오_model 생성_18](https://user-images.githubusercontent.com/60806047/146859291-270d65dd-3617-4d81-9814-59e45102d48b.JPG)
+
 - 이렇게 열의 이름이 "메시지 글자수"로 바뀌는 점을 알 수 있습니다.
 
 - instagram -> admin.py 이동
+
 ![비주얼스튜디오_model 생성_19](https://user-images.githubusercontent.com/60806047/146859344-0cffe0d5-65d8-4bed-807d-42d678359ffc.JPG)
+
 <pre>
 <code>
 def message_length(self, post):
  return f"{len(post.message)} 글자"
 </code>
 </pre>
+
 ![비주얼스튜디오_model 생성_20](https://user-images.githubusercontent.com/60806047/146859535-228c5561-7fa7-41be-a2f3-31ee5337d1e3.JPG)
 - 1 "글자", 3 "글자" / 옆에 글자가 붙인걸 확인할 수 있어요!
 
@@ -613,6 +622,7 @@ def message_length(self, post):
 - 콘솔창에서 Ctrl + c 누르면 종료됩니다.
 
 ![비주얼스튜디오_model 생성_21](https://user-images.githubusercontent.com/60806047/146859603-a1d0c131-d01f-4bed-bc1c-e04284e913f1.JPG)
+
 <pre>
 <code>
 python manage.py shell
