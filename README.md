@@ -242,8 +242,8 @@ title = models.CharField(max_length=100)
 content = models.TextField()
 created_at = models.DateTimeField(auto_now_add=True)
 updated_at = models.DateTimeField(auto_now=True)
-</pre>
 </code>
+</pre>
 
 # 모델 활용 순서
 - 장고 모델을 통해, 데이터베이스 형상을 관리할 경우
@@ -299,7 +299,7 @@ python manage.py startapp instagram
 
 ![비주얼스튜디오_3](https://user-images.githubusercontent.com/60806047/146732589-c0131acc-f270-485e-943b-05d50a0678cf.JPG)
 
-askcompany -> "__pycache__" -> settings.py 들어가주시고
+- askcompany -> "__pycache__" -> settings.py 들어가주시고
 
 ![비주얼스튜디오_4](https://user-images.githubusercontent.com/60806047/146732685-be422222-c041-4713-a10e-bf000a918a00.JPG)
 
@@ -365,8 +365,8 @@ python manage.py migrate instagram
 <pre>
 <code>
 python manage.py sqlmigrate instagram 0001_initial
-</pre>
 </code>
+</pre>
 
 ![비주얼스튜디오_15](https://user-images.githubusercontent.com/60806047/146732994-7ee92605-fd7c-4afc-be7b-149f26c682c3.JPG)
 <pre>
