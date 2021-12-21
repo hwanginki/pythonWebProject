@@ -512,6 +512,8 @@ ORM은 SQL 쿼리를 만들어주는 역할일 뿐, 보다 성능높은 애플�
 </code>
 </pre>
 
+# 장고 admin을 통한 데이터 관리(기초)
+
 ## 파이썬 설치
 - 1. https://www.python.org/
 - 2. ![python_install_1](https://user-images.githubusercontent.com/60806047/146522767-90b390a9-47dc-46e3-b350-61bb4f2ac68a.JPG)
