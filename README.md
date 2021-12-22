@@ -645,6 +645,49 @@ list_filter = ['is_publish']
 </code>
 </pre>
 
+- admin.py 이동
+![장고이미지_1](https://user-images.githubusercontent.com/60806047/146861816-e1c00919-d282-419a-a700-cc4e2a352402.JPG)
+<pre>
+<code>
+list_filter = ['created_at']
+</code>
+</pre>
+
+![장고이미지_2](https://user-images.githubusercontent.com/60806047/146861859-73d298ff-5564-475e-91c0-71075dd1a2e2.JPG)
+- 사진처럼 빨간색 네모표시가 필터 목록이 추가했음을 볼 수 있습니다!
+
+![장고이미지_3](https://user-images.githubusercontent.com/60806047/146861883-11dfd971-61e2-4e9b-9739-d66a1602a474.JPG)
+
+<pre>
+<code>
+python manage.py makemigrations instagram
+</code>
+</pre>
+
+![장고이미지_4](https://user-images.githubusercontent.com/60806047/146861890-14c44bf8-a74f-48b2-a8f9-886412ac91d8.JPG)
+
+- 이렇게 폴더 생성됐구요
+
+![장고이미지_5](https://user-images.githubusercontent.com/60806047/146861939-e002b4a8-1e84-4b0b-be6a-6d44be46a7c4.JPG)
+<pre>
+<code>
+python manage.py migrate instagram
+</code>
+</pre>
+- OK 나오면 성공
+
+![장고이미지_6](https://user-images.githubusercontent.com/60806047/146861972-b2000491-c4d9-457d-b740-68a3ff08f76b.JPG)
+
+![장고이미지_7](https://user-images.githubusercontent.com/60806047/146861983-510915e8-1b8d-4709-812a-304bc2b0d6ad.JPG)
+- is_public 추가
+
+![장고이미지_8](https://user-images.githubusercontent.com/60806047/146861998-39692ff8-aea0-4cf5-981e-49140cf5f56e.JPG)
+- 공개여부가 추가되었음 볼 수가 있습니다!!
+
+![장고이미지_9](https://user-images.githubusercontent.com/60806047/146862014-86610771-213b-4a40-8553-e747e42378bd.JPG)
+![장고이미지_10](https://user-images.githubusercontent.com/60806047/146862019-f3e56131-626f-407c-8510-a9ea549f466a.JPG)
+
+
 ## 파이썬 설치
 - 1. https://www.python.org/
 - 2. ![python_install_1](https://user-images.githubusercontent.com/60806047/146522767-90b390a9-47dc-46e3-b350-61bb4f2ac68a.JPG)
