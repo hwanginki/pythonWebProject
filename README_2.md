@@ -147,7 +147,7 @@ os.environ['DJANGO_ALLOW_ASYNC_UNSAFE'] = "true"
 - 입력하고나서 "Ctrl + Enter" 누르면 실행됩니다.
 
 - 그리고
-- 
+
 ![주피터8](https://user-images.githubusercontent.com/60806047/147179963-17ebda07-9fcd-4f9d-a3af-da7c72d3433e.JPG)
 - "B" 버튼 누르시면 새로운 입력창이 생성됩니다. 거기서 입력하시면 되구요.
 
