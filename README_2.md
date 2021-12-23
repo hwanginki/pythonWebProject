@@ -119,7 +119,7 @@ pip install -r requirements.txt
 ![주피터2](https://user-images.githubusercontent.com/60806047/147179948-30cd0676-8c55-45a6-88db-bc144b39bc76.JPG)
 - pip install ipykernel
 
-- ![주피터3](https://user-images.githubusercontent.com/60806047/147179949-ffbeaf59-dbbd-4e9f-a9b0-27cb7ab93ada.JPG)
+![주피터3](https://user-images.githubusercontent.com/60806047/147179949-ffbeaf59-dbbd-4e9f-a9b0-27cb7ab93ada.JPG)
 - python -m ipykernel install --user --name conda --display-name conda
 
 ![주피터4](https://user-images.githubusercontent.com/60806047/147179951-8526b0dd-1f5b-4a9b-a4c2-072763b4d229.JPG)
@@ -141,12 +141,13 @@ pip install -r requirements.txt
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'askcompany.settings'
 os.environ['DJANGO_ALLOW_ASYNC_UNSAFE'] = "true"
-<code>
+</code>
 </pre>
 
 - 입력하고나서 "Ctrl + Enter" 누르면 실행됩니다.
 
 - 그리고
+- 
 ![주피터8](https://user-images.githubusercontent.com/60806047/147179963-17ebda07-9fcd-4f9d-a3af-da7c72d3433e.JPG)
 - "B" 버튼 누르시면 새로운 입력창이 생성됩니다. 거기서 입력하시면 되구요.
 
@@ -155,7 +156,7 @@ os.environ['DJANGO_ALLOW_ASYNC_UNSAFE'] = "true"
 import os
 import django
 django.setup()
-<code>
+</code>
 </pre>
 
 - Ctrl + Enter 눌렀는데 갑자기 사진처럼 에러가 떴다?
@@ -189,7 +190,7 @@ django.setup()
 <pre>
 <code>
 from instagram.models import Post
-<code>
+</code>
 </pre>
 - 이렇게 실행하고
 
@@ -197,7 +198,7 @@ from instagram.models import Post
 <code>
 qs = Post.objects.all()
 print(qs.query)
-<code>
+</code>
 </pre>
 - 실행하고나서 이렇게 나오면 성공적으로 된겁니다!!!
 
