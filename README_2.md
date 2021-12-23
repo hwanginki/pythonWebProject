@@ -110,20 +110,96 @@ pip install -r requirements.txt
 
 - https://www.anaconda.com/products/individual
 
+- 비주얼스튜디오 코드에서 jupyter notebook(주피터 노트북) 실행하는 방법
 
+![주피터1](https://user-images.githubusercontent.com/60806047/147179943-76a570b2-bf8e-4d61-ba94-90e7c4f85c42.JPG)
 
+- 우선 콘솔창에서 pip install jupyter 명령어 치구요
 
+![주피터2](https://user-images.githubusercontent.com/60806047/147179948-30cd0676-8c55-45a6-88db-bc144b39bc76.JPG)
+- pip install ipykernel
 
+- ![주피터3](https://user-images.githubusercontent.com/60806047/147179949-ffbeaf59-dbbd-4e9f-a9b0-27cb7ab93ada.JPG)
+- python -m ipykernel install --user --name conda --display-name conda
 
+![주피터4](https://user-images.githubusercontent.com/60806047/147179951-8526b0dd-1f5b-4a9b-a4c2-072763b4d229.JPG)
+- jupyter notebok
 
+![주피터5](https://user-images.githubusercontent.com/60806047/147179953-0df4e322-1787-47b7-adfc-53a24b1436bb.JPG)
+- 주피터라는 브라우저가 자동 불러지면 성공입니다.
 
+![주피터6](https://user-images.githubusercontent.com/60806047/147179960-198395d9-129d-4b8c-948e-96db38660ca2.JPG)
+- New 클릭하셔서 Python 3 나오면 클릭해주세요. 옆에는 이름입니다.
 
+![주피터7](https://user-images.githubusercontent.com/60806047/147179961-2cd7d2f2-729b-4b1a-83a9-58ee7f4d2acb.JPG)
 
+- 빨간색 네모표시보시면 Python 3(이름) 보여주시고요.
+- 여기서 입력창에 일단 이렇게 입력합시다.
 
+<pre>
+<code>
+import os
+os.environ['DJANGO_SETTINGS_MODULE'] = 'askcompany.settings'
+os.environ['DJANGO_ALLOW_ASYNC_UNSAFE'] = "true"
+<code>
+</pre>
 
+- 입력하고나서 "Ctrl + Enter" 누르면 실행됩니다.
 
+- 그리고
+![주피터8](https://user-images.githubusercontent.com/60806047/147179963-17ebda07-9fcd-4f9d-a3af-da7c72d3433e.JPG)
+- "B" 버튼 누르시면 새로운 입력창이 생성됩니다. 거기서 입력하시면 되구요.
 
+<pre>
+<code>
+import os
+import django
+django.setup()
+<code>
+</pre>
 
+- Ctrl + Enter 눌렀는데 갑자기 사진처럼 에러가 떴다?
+- 이유는 장고(django)이라는 모듈 설치되어있지 않기 때문입니다.
+
+![주피터9](https://user-images.githubusercontent.com/60806047/147179964-6d156634-acfb-4b0e-b2bd-e0de7f6c9058.JPG)
+- pip list
+- 입력해서 설치관련 리스트가 나오는데 거기서 검색해도 django라는 글이 없겠죠.
+
+![주피터10](https://user-images.githubusercontent.com/60806047/147179965-3317be59-7cb0-46ad-b808-b0383509be78.JPG)
+- pip install django 입력해서 [*]는 설치중이라고 기다리시면
+
+![주피터11](https://user-images.githubusercontent.com/60806047/147179967-4d0e42e6-a232-4bec-adc5-cb8ec982ea24.JPG)
+- 갑자기 설치하는 도중에 이렇게 에러가 떴다면? 이유는 pip 버전이 낮기 때문에 업그레이드 해야됩니다.
+
+![주피터12](https://user-images.githubusercontent.com/60806047/147179968-eb211e04-fff4-49d9-b500-2db7a6d098d2.JPG)
+- pip install --upgrade pip
+- 명령어 친 후 기다리면
+
+![주피터13](https://user-images.githubusercontent.com/60806047/147179970-bc4f73ca-111e-4791-be3a-568a00b4d518.JPG)
+- 이렇게 pip의 버전이 업그레이드가 성공적으로 메시지가 나오면 완료 된겁니다.
+
+![주피터14](https://user-images.githubusercontent.com/60806047/147179972-afecc66f-5ab0-4c96-b0f1-89263e230ee4.JPG)
+- 다시 이렇게 입력하시구요. 기다리고 되면
+
+![주피터15](https://user-images.githubusercontent.com/60806047/147179973-4076ac70-1123-4bc0-ad5d-1bbb0aa0edde.JPG)
+- 이렇게 치면 될겁니다. 아마도
+
+![주피터16](https://user-images.githubusercontent.com/60806047/147179977-0bab8a54-747a-4f09-9261-eac762c1a7bb.JPG)
+
+<pre>
+<code>
+from instagram.models import Post
+<code>
+</pre>
+- 이렇게 실행하고
+
+<pre>
+<code>
+qs = Post.objects.all()
+print(qs.query)
+<code>
+</pre>
+- 실행하고나서 이렇게 나오면 성공적으로 된겁니다!!!
 
 
 
