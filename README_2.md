@@ -419,7 +419,7 @@ urlpatterns = [
 <code>
 python manage.py shell_plus --print-sql --ipython
 </code>
-<pre>
+</pre>
 
 - askcompany > settings.py
 
