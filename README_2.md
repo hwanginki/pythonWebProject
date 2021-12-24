@@ -346,7 +346,6 @@ urlpatterns = [
 ![비주얼스튜디오_Queryset을 통한 검색구현_8](https://user-images.githubusercontent.com/60806047/147306021-83948f1a-0e50-438d-8c06-6a7a0f7110d7.JPG)
 
 <pre>
-<code>
   <table>
     <tbody>
       {% for post in post_list %}
@@ -355,7 +354,6 @@ urlpatterns = [
       {% endfor %}
     </tbody>
   </table>
-</code>
 </pre>
 
 - <tabel>, <tbody>이라는 태크 입력하고 이렇게 작성해주세요.
