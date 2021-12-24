@@ -411,4 +411,60 @@ urlpatterns = [
   1. (추천방법) 모델 클래스의 "Meta" 속성으로 ordering 설정 : list로 지정
   2. 모든 queryset에 order_by(...)에 지정
 
+![Queryset의 정렬 및 범위 조건_1](https://user-images.githubusercontent.com/60806047/147314474-8ed2f0f0-1d38-4972-ba12-d76591c3eb91.JPG)
+
 - pip install django-extensions 설치
+
+<pre>
+<code>
+python manage.py shell_plus --print-sql --ipython
+</code>
+<pre>
+
+- askcompany > settings.py
+
+![Queryset의 정렬 및 범위 조건_2](https://user-images.githubusercontent.com/60806047/147314490-841ba511-f42d-4930-9db4-1ba2ced30cdb.JPG)
+
+- 42라인, 'django_extenstion',
+
+- 이렇게 저장해야 shell 실행할 수 있습니다.
+
+![Queryset의 정렬 및 범위 조건_3](https://user-images.githubusercontent.com/60806047/147314528-d27e6021-ae57-41fe-9361-e25f6e9c0d90.JPG)
+
+<pre>
+<code>
+ python manage.py shell_plus --print-sql --ipython
+</code>
+</pre>
+
+- In [1]: 안에 명령어 입력!
+
+![Queryset의 정렬 및 범위 조건_4](https://user-images.githubusercontent.com/60806047/147314595-3d606534-8014-47b2-b2e0-8ddf9e608c9c.JPG)
+
+- from instagram.models import Post
+
+![Queryset의 정렬 및 범위 조건_5](https://user-images.githubusercontent.com/60806047/147314608-d0d21065-559a-44ce-9c72-26531d29bb64.JPG)
+
+- Post.objects.all() 사용하기
+
+![Queryset의 정렬 및 범위 조건_6](https://user-images.githubusercontent.com/60806047/147314619-b65221af-bac9-41c7-bb9f-ed7469a4e9cd.JPG)
+
+- instagram > models.py > 21~22 작성
+
+![Queryset의 정렬 및 범위 조건_6](https://user-images.githubusercontent.com/60806047/147314671-cccac303-be53-4544-804e-59faadea79f1.JPG)
+
+- 다시 Post.objects.all() 확인
+
+![Queryset의 정렬 및 범위 조건_7](https://user-images.githubusercontent.com/60806047/147314690-a253c660-0363-4031-af0b-0789d3fa8812.JPG)
+
+- 만약에 이렇게 안나오면, In[n]에서 exit() 명렁어 친 후, 다시 python manage.py shell_plus --print-sql --ipython 입력
+
+![Queryset의 정렬 및 범위 조건_8](https://user-images.githubusercontent.com/60806047/147314730-93a934ab-6e2b-4aaa-a510-0762d5bf4157.JPG)
+
+- Post.objects.all().order_by('created_at') 확인
+
+![Queryset의 정렬 및 범위 조건_9](https://user-images.githubusercontent.com/60806047/147314749-878ab53e-49fe-4497-801c-809043b902e8.JPG)
+
+- Post.objects.all().order_by('id')[:2] 확인
+
+
