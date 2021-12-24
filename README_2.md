@@ -263,4 +263,30 @@ Post.objects.create(…) 코드는 "INSERT INTO …...;"
 ![주피터를 이용한 모델 활용_9](https://user-images.githubusercontent.com/60806047/147302126-d43362a5-b3af-4d8e-b095-8c48bd06f43a.JPG)
 ![주피터를 이용한 모델 활용_10](https://user-images.githubusercontent.com/60806047/147302132-1cd273ad-c9a6-4fca-8991-80c1b6f9a2a2.JPG)
 
+# 필드 타입별 다양한 조건 매칭
+ - 주의) 데이터베이스에 따라 생성되는 SQL이 다릅니다.
+  - 숫자/날짜/시간 필드
+  <pre>
+  <code>
+    필드명__lt = 조건값 è 필드명 < 조건값
+    필드명__lte = 조건값 è 필드명 <= 조건값
+    필드명__gt = 조건값 è 필드명 > 조건값
+    필드명__gte = 조건값 è 필드명 >= 조건값  
+  </code>
+  </pre>
+
+  - 문자열 필드
+  <pre>
+  <code>
+    필드명__startswith = 조건값 è 필드명 LIKE “조건값%”
+    필드명__istartswith = 조건값 è 필드명 ILIKE “조건값%”
+    필드명__endswith = 조건값 è 필드명 LIKE “%조건값”
+    필드명__iendswith = 조건값 è 필드명 ILIKE “%조건값”
+    필드명__contains = 조건값 è 필드명 LIKE “%조건값%”
+    필드명__icontains = 조건값 è 필드명 ILIKE “%조건값%”
+  </code>
+  </pre>
+
+# 실전예제) Item 목록/간단검색 페이지
+
 
