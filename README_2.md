@@ -289,4 +289,162 @@ Post.objects.create(…) 코드는 "INSERT INTO …...;"
 
 # 실전예제) Item 목록/간단검색 페이지
 
+- instagram > views.py 이동
 
+![비주얼스튜디오_Queryset을 통한 검색구현_1](https://user-images.githubusercontent.com/60806047/147305735-f9dc5b91-abfd-4126-a65d-0e9440360151.JPG)
+
+<pre>
+<code>
+from django.shortcuts import render
+from .models import Post
+
+def post_list(request):
+    qs = Post.objects.all()
+    q = request.GET.get('q', '')
+    if q:
+        qs = qs.filter(message__icontains=q)
+    return render(request, 'instagram/post_list.html', {
+        'post_list': qs,
+    })
+</code>
+</pre>
+
+![비주얼스튜디오_Queryset을 통한 검색구현_2](https://user-images.githubusercontent.com/60806047/147305799-1b31e86d-d658-4662-b3b4-95b1da23c2bd.JPG)
+
+- instagram 폴더에서 templates 폴더 생성하고 intagram 폴더 생성해주세요. 사진처럼
+- 그리고나서 post_list.html 파일 생성해주세요.
+
+- instagram > urls.py
+
+![비주얼스튜디오_Queryset을 통한 검색구현_3](https://user-images.githubusercontent.com/60806047/147305863-655515ac-0fa0-4384-9443-42cd76d15b20.JPG)
+
+<pre>
+<code>
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.post_list),
+]
+</code>
+</pre>
+
+- instagram > templates > instagram > post_list.html 이동
+
+![비주얼스튜디오_Queryset을 통한 검색구현_5](https://user-images.githubusercontent.com/60806047/147305938-8727a209-cd24-4ee4-88cd-3f6f9dd9fa57.JPG)
+
+- ! 치고 자동완성창이 보이면 ! 엔터눌러주세요.
+
+![비주얼스튜디오_Queryset을 통한 검색구현_6](https://user-images.githubusercontent.com/60806047/147305961-68165675-7cbc-4fdb-bf44-444461083b25.JPG)
+
+- 사진처럼 <body> {{ post_list }} </body> 입력해주세요.
+
+![비주얼스튜디오_Queryset을 통한 검색구현_7](https://user-images.githubusercontent.com/60806047/147305998-e14b6827-2043-4528-b39e-0a46806f6f3d.JPG)
+
+- 실행하고 주소창에 ../instagram 입력해서 이렇게 볼 수 있습니다.
+
+![비주얼스튜디오_Queryset을 통한 검색구현_8](https://user-images.githubusercontent.com/60806047/147306021-83948f1a-0e50-438d-8c06-6a7a0f7110d7.JPG)
+
+<pre>
+<code>
+  <table>
+    <tbody>
+      {% for post in post_list %}
+        {{ post.photo }}
+        {{post.message }}
+      {% endfor %}
+    </tbody>
+  </table>
+</code>
+</pre>
+
+- <tabel>, <tbody>이라는 태크 입력하고 이렇게 작성해주세요.
+
+![비주얼스튜디오_Queryset을 통한 검색구현_9](https://user-images.githubusercontent.com/60806047/147306110-b4f81606-8714-41a0-ac59-ad56f1d08aee.JPG)
+
+- 실행하면 이렇게 이미지같이 나올 수 있습니다.
+
+![비주얼스튜디오_Queryset을 통한 검색구현_10](https://user-images.githubusercontent.com/60806047/147306159-87c90e6a-5096-41d8-b478-7678422de13a.JPG)
+
+- 이렇게 작성해주시고
+
+![비주얼스튜디오_Queryset을 통한 검색구현_11](https://user-images.githubusercontent.com/60806047/147306173-ef677a13-4833-4687-b678-cd1464a17ff9.JPG)
+
+- 한개아니라 등록했던거 다 같이 나오죠? 그런데 이거 보기좀 그렇지만
+  
+- 부트스트랩이라는 js 이용해서 방금 페이지를 꾸미려고 합니다
+- https://getbootstrap.com/
+ 
+![비주얼스튜디오_Queryset을 통한 검색구현_12](https://user-images.githubusercontent.com/60806047/147306228-0cfd1f70-7a69-4d13-8007-c658a465f3ae.JPG)
+  
+- 아래로 이동하셔서
+
+![비주얼스튜디오_Queryset을 통한 검색구현_13](https://user-images.githubusercontent.com/60806047/147306258-7afb6727-3136-43e9-93f9-8713defa11fd.JPG)
+
+- 저거 Copy 복사해주세요.
+<pre>
+<code>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</code>
+</pre>
+  
+![비주얼스튜디오_Queryset을 통한 검색구현_14](https://user-images.githubusercontent.com/60806047/147306329-f2a8fdd1-743f-4b92-8536-e9fd69bce45e.JPG)
+
+- 사진처럼 <meta>과 <title>에 사이에 넣어주시면 됩니다!!
+
+![비주얼스튜디오_Queryset을 통한 검색구현_15](https://user-images.githubusercontent.com/60806047/147306347-458620b5-ed4f-4255-b29c-b82dd795d8c2.JPG)
+
+- 이렇게 작성하시면 되겠습니다.
+<pre>
+<code>
+<table class="table table-bordered table-hover">
+        <tbody>
+            {% for post in post_list %}
+                <tr>
+                    <td>
+                        {{ post.pk }}
+                    </td>
+                    <td>
+                        {% if post.photo %}
+                            <img src="{{ post.photo.url }}" style="width: 100px;" />
+                        {% else %}
+                            No Photo
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ post.get_absolute_url }}">
+                            {{ post.message }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</code>
+</pre>
+
+![비주얼스튜디오_Queryset을 통한 검색구현_16](https://user-images.githubusercontent.com/60806047/147306425-d3f0a0b8-0da6-4233-bdc4-1c109e35cc44.JPG)
+
+- 사진처럼 이미지가 잘 불러올 수 있죠?
+  
+- 검색버튼 생성하려고 합니다!
+  
+![비주얼스튜디오_Queryset을 통한 검색구현_17](https://user-images.githubusercontent.com/60806047/147306445-b03754ed-c18e-493f-8582-27ab8bef4c19.JPG)
+
+<pre>
+<code>
+<form action="" method="get">
+    <input type="text" name="q" value="{{ q }}"/>
+    <input type="submit" value="검색" />
+</form>
+</code>
+</pre>
+  
+![비주얼스튜디오_Queryset을 통한 검색구현_18](https://user-images.githubusercontent.com/60806047/147306502-90f4b9d5-dfc7-4e2a-8368-aad718c3dbac.JPG)
+
+- 사진처럼 검색 인풋 생기고, 버튼도 생성되었음을 볼 수 있습니다.
+  
+![비주얼스튜디오_Queryset을 통한 검색구현_19](https://user-images.githubusercontent.com/60806047/147306530-8548748e-f464-4103-bb5c-a5f5bc1fa90b.JPG)
+
+- 검색창에 ddd 검색하니까 검색 잘 됐습니다!
+  
