@@ -354,7 +354,7 @@ urlpatterns = [
   </code>
 </pre>
 
-- <tabel>, <tbody>이라는 태크 입력하고 이렇게 작성해주세요.
+- tabel, tbody이라는 태크 입력하고 이렇게 작성해주세요.
 
 ![비주얼스튜디오_Queryset을 통한 검색구현_9](https://user-images.githubusercontent.com/60806047/147306110-b4f81606-8714-41a0-ac59-ad56f1d08aee.JPG)
 
@@ -381,7 +381,7 @@ urlpatterns = [
 
 ![비주얼스튜디오_Queryset을 통한 검색구현_14](https://user-images.githubusercontent.com/60806047/147306329-f2a8fdd1-743f-4b92-8536-e9fd69bce45e.JPG)
 
-- 사진처럼 <meta>과 <title>에 사이에 넣어주시면 됩니다!!
+- 사진처럼 meta과 title에 사이에 넣어주시면 됩니다!!
 
 ![비주얼스튜디오_Queryset을 통한 검색구현_15](https://user-images.githubusercontent.com/60806047/147306347-458620b5-ed4f-4255-b29c-b82dd795d8c2.JPG)
 
@@ -403,3 +403,12 @@ urlpatterns = [
 
 - 검색창에 ddd 검색하니까 검색 잘 됐습니다!
   
+# 정렬 조건 추가하기 - SELECT 쿼리에 "ORDER BY" 추가
+- 정렬 조건을 추가하지 않으면 일관된 순서를 보장받을 수가 없습니다!!
+- DB에서 다수 필드에 대한 정렬을 지원하지만, 가급적 단일 필드로 하는 것이 성능에 이익
+- 시간순 / 역순 정렬이 필요할 경우, id 필드를 활용해볼 수 있음.
+- 정렬 조건을 지정하는 2가지 방법
+  1. (추천방법) 모델 클래스의 "Meta" 속성으로 ordering 설정 : list로 지정
+  2. 모든 queryset에 order_by(...)에 지정
+
+- pip install django-extensions 설치
