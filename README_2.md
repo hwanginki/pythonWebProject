@@ -346,14 +346,12 @@ urlpatterns = [
 ![비주얼스튜디오_Queryset을 통한 검색구현_8](https://user-images.githubusercontent.com/60806047/147306021-83948f1a-0e50-438d-8c06-6a7a0f7110d7.JPG)
 
 <pre>
-  <table>
-    <tbody>
+  <code>
       {% for post in post_list %}
         {{ post.photo }}
         {{post.message }}
       {% endfor %}
-    </tbody>
-  </table>
+  </code>
 </pre>
 
 - <tabel>, <tbody>이라는 태크 입력하고 이렇게 작성해주세요.
@@ -382,7 +380,7 @@ urlpatterns = [
 - 저거 Copy 복사해주세요.
 <pre>
 <code>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+!<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </code>
 </pre>
   
