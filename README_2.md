@@ -368,7 +368,7 @@ urlpatterns = [
 
 - 한개아니라 등록했던거 다 같이 나오죠? 그런데 이거 보기좀 그렇지만
   
-- 부트스트랩이라는 js 이용해서 방금 페이지를 꾸미려고 합니다
+- 부트스트랩이라는 템플렛을 이용해서 방금 페이지를 꾸미려고 합니다
 - https://getbootstrap.com/
  
 ![비주얼스튜디오_Queryset을 통한 검색구현_12](https://user-images.githubusercontent.com/60806047/147306228-0cfd1f70-7a69-4d13-8007-c658a465f3ae.JPG)
