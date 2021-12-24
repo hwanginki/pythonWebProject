@@ -202,9 +202,65 @@ print(qs.query)
 </pre>
 - 실행하고나서 이렇게 나오면 성공적으로 된겁니다!!!
 
+# 모델을 통한 조회(기초)
+- Model Manager
+  - 데이터베이스 질의 인터페이스를 제공합니다. 디폴트 Manager로서 ModelCls.objects가 제공합니다.
 
+생성되는 대강의 SQL 윤곽 -> SELECT * FROM app_model;
+- ModelCls.objects.all()
 
+![주피터를 이용한 모델 활용_1](https://user-images.githubusercontent.com/60806047/147302035-bf9c8a78-86ae-4427-a321-ad2687954564.JPG)
 
+생성되는 대강의 SQL 윤곽 à SELECT * FROM app_model ORDER BY id DESC LIMIT 10;
+- ModelCls.objects.all().order_by('-id')[:10]
 
+![주피터를 이용한 모델 활용_2](https://user-images.githubusercontent.com/60806047/147302040-afecfb66-2034-4508-8231-517b23347fad.JPG)
+![주피터를 이용한 모델 활용_3](https://user-images.githubusercontent.com/60806047/147302045-131f09dd-88d9-424b-a13e-4bf928802b7d.JPG)
+![주피터를 이용한 모델 활용_4](https://user-images.githubusercontent.com/60806047/147302070-3465caf9-c3e8-4ff2-b30a-7718b6b24509.JPG)
+
+생성되는 대강의 SQL 윤곽 à INSERT INTO app_model (title) VALUES (“New Title”);
+- ModelCls.objects.create(title="New Title")
+
+# QuerySet
+- SQL을 생성해주는 인터페이스!! 순회가능한 객체임
+- Model Manager를 통해, 해당 Model에 대한 QuerySet을 획득!
+<pre>
+<code>
+Post.objects.all() 코드는 "SELECT * FROM post ...;"
+Post.objects.create(…) 코드는 "INSERT INTO …...;"
+</code>
+</pre>
+
+# QuerySet은 Chaining을 지원
+- Post.objects.all().filter(...).exclude(...).filter(...) -> QuerySet
+- QuerySet은 Lazy한 특성
+  - QuerySet을 만드는 동안에는 DB접근을 하지 않습니다.
+  - 실제로 데이터가 필요한 시점에 접근을 합니다.
+- 데이터가 필요한 시점은 언제인가?
+  - qryset
+  - print(queryset)
+  - list(queryset)
+  - for instance in queryset: print(instance)
+
+# 다양한 조회요청 방법
+- 조건을 추가한 Queryset, 획득할 준비
+  - queryset.filter(...) -> qeuryset
+  - queryset.exclude(...) -> querryset
+ 
+![주피터를 이용한 모델 활용_5](https://user-images.githubusercontent.com/60806047/147302083-24b1f4ab-ce57-4f80-adc4-7ca1c83a4909.JPG)
+![주피터를 이용한 모델 활용_6](https://user-images.githubusercontent.com/60806047/147302093-8fa8ad86-4833-4a94-955e-4d5c500c84bf.JPG)
+
+- 특정 모델객체 1개 획득을 시도
+  - queryset[숫자인덱스]
+    - 모델객체 혹은 예외발생(IndexError)
+  - queryset.get(...)
+    - 모델객체 혹은 예외발생(DoesNotExisst, MultipleObjectsReturned
+  - queryset.first() -> 모델객체 혹은 None
+  - queryset.last() -> 모델객체 혹은 None
+
+![주피터를 이용한 모델 활용_7](https://user-images.githubusercontent.com/60806047/147302120-6d5367b6-5d09-4628-a241-2d085cce972e.JPG)
+![주피터를 이용한 모델 활용_8](https://user-images.githubusercontent.com/60806047/147302124-0abb5028-08af-4e8a-b0cb-cf7b3eabedeb.JPG)
+![주피터를 이용한 모델 활용_9](https://user-images.githubusercontent.com/60806047/147302126-d43362a5-b3af-4d8e-b095-8c48bd06f43a.JPG)
+![주피터를 이용한 모델 활용_10](https://user-images.githubusercontent.com/60806047/147302132-1cd273ad-c9a6-4fca-8991-80c1b6f9a2a2.JPG)
 
 
