@@ -378,12 +378,7 @@ urlpatterns = [
 ![비주얼스튜디오_Queryset을 통한 검색구현_13](https://user-images.githubusercontent.com/60806047/147306258-7afb6727-3136-43e9-93f9-8713defa11fd.JPG)
 
 - 저거 Copy 복사해주세요.
-<pre>
-<code>
-!<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</code>
-</pre>
-  
+
 ![비주얼스튜디오_Queryset을 통한 검색구현_14](https://user-images.githubusercontent.com/60806047/147306329-f2a8fdd1-743f-4b92-8536-e9fd69bce45e.JPG)
 
 - 사진처럼 <meta>과 <title>에 사이에 넣어주시면 됩니다!!
@@ -391,33 +386,6 @@ urlpatterns = [
 ![비주얼스튜디오_Queryset을 통한 검색구현_15](https://user-images.githubusercontent.com/60806047/147306347-458620b5-ed4f-4255-b29c-b82dd795d8c2.JPG)
 
 - 이렇게 작성하시면 되겠습니다.
-<pre>
-<code>
-<table class="table table-bordered table-hover">
-        <tbody>
-            {% for post in post_list %}
-                <tr>
-                    <td>
-                        {{ post.pk }}
-                    </td>
-                    <td>
-                        {% if post.photo %}
-                            <img src="{{ post.photo.url }}" style="width: 100px;" />
-                        {% else %}
-                            No Photo
-                        {% endif %}
-                    </td>
-                    <td>
-                        <a href="{{ post.get_absolute_url }}">
-                            {{ post.message }}
-                        </a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</code>
-</pre>
 
 ![비주얼스튜디오_Queryset을 통한 검색구현_16](https://user-images.githubusercontent.com/60806047/147306425-d3f0a0b8-0da6-4233-bdc4-1c109e35cc44.JPG)
 
@@ -426,15 +394,6 @@ urlpatterns = [
 - 검색버튼 생성하려고 합니다!
   
 ![비주얼스튜디오_Queryset을 통한 검색구현_17](https://user-images.githubusercontent.com/60806047/147306445-b03754ed-c18e-493f-8582-27ab8bef4c19.JPG)
-
-<pre>
-<code>
-<form action="" method="get">
-    <input type="text" name="q" value="{{ q }}"/>
-    <input type="submit" value="검색" />
-</form>
-</code>
-</pre>
   
 ![비주얼스튜디오_Queryset을 통한 검색구현_18](https://user-images.githubusercontent.com/60806047/147306502-90f4b9d5-dfc7-4e2a-8368-aad718c3dbac.JPG)
 
