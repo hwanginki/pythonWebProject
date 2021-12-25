@@ -468,3 +468,4 @@ python manage.py shell_plus --print-sql --ipython
 - Post.objects.all().order_by('id')[:2] 확인
 
 
+~~~~~~~~~
