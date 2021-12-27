@@ -475,7 +475,7 @@ python manage.py shell_plus --print-sql --ipython
 - https://django-debug-toolbar.readthedocs.io/en/latest/installation.html(설치하는 곳 아닙니다! 콘솔창에서 다운로드 합니다!)
 - 주의사항! 웹페이지의 템플릿에 꼭 "<body>"태그가 있어야만, django-debug-toolbar가 동작합니다. 이유는 dtb의 html/script 디폴트 주입 타겟이 </body> 태그 (INSRT_BEFORE 설정 디폴트 : "</body>") -> 무슨 말이냐면 html에 있는 <'body>"라는 태그가 있는데 그거 없으면 툴바(이미지)가 보이지 않아서 꼭 바디 태그 붙어야 툴바가 보일 수 있어요!!
 
-![디버그를 통한 SQL 디버그_1](https://user-images.githubusercontent.com/60806047/147424930-a388e667-16a6-4387-aca0-25e162858c91.JPG
+![디버그를 통한 SQL 디버그_1](https://user-images.githubusercontent.com/60806047/147425059-6f4f65f0-496d-4c99-b503-aa1fcb9d1340.JPG)
 
 - pip install django-debug-toolbar 설치
 
