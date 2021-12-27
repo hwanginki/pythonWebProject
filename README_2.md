@@ -467,5 +467,58 @@ python manage.py shell_plus --print-sql --ipython
 
 - Post.objects.all().order_by('id')[:2] 확인
 
+# django-debug-toolbar
+- 현재 request/response에 대한 다양한 디버깅 정보를 보여줘요. 다양한 Panel 지원합니다.
+  - SQLPanel을 통해, 각 요청 처리 시에 발생한 SQL 내역 확인 가능, Ajax 요청에 대한 지원은 불가합니다.
 
-~~~~~~~~~
+# django-debug-toolbar 설치
+- https://django-debug-toolbar.readthedocs.io/en/latest/installation.html(설치하는 곳 아닙니다! 콘솔창에서 다운로드 합니다!)
+- 주의사항! 웹페이지의 템플릿에 꼭 "<body>"태그가 있어야만, django-debug-toolbar가 동작합니다. 이유는 dtb의 html/script 디폴트 주입 타겟이 </body> 태그 (INSRT_BEFORE 설정 디폴트 : "</body>") -> 무슨 말이냐면 html에 있는 <'body>"라는 태그가 있는데 그거 없으면 툴바(이미지)가 보이지 않아서 꼭 바디 태그 붙어야 툴바가 보일 수 있어요!!
+
+![디버그를 통한 SQL 디버그_1](https://user-images.githubusercontent.com/60806047/147424930-a388e667-16a6-4387-aca0-25e162858c91.JPG
+
+- pip install django-debug-toolbar 설치
+
+![디버그를 통한 SQL 디버그_2](https://user-images.githubusercontent.com/60806047/147424942-5bff9ea8-d77f-4c08-a322-176e7f3c2f92.JPG)
+
+- askcompany > settings.py 이동 'debug_toolbar' 작성
+
+![디버그를 통한 SQL 디버그_3](https://user-images.githubusercontent.com/60806047/147424953-c1ace448-ab11-4273-aa3f-2240fd76bdd4.JPG)
+
+- settings.py > urls.py 이동
+
+![디버그를 통한 SQL 디버그_4](https://user-images.githubusercontent.com/60806047/147424960-144e62c8-ace7-4c95-b8a5-554698d83915.JPG)
+
+![디버그를 통한 SQL 디버그_5](https://user-images.githubusercontent.com/60806047/147424966-a4b3b365-a42a-479f-b2f0-e5624c084b74.JPG)
+
+![디버그를 통한 SQL 디버그_6](https://user-images.githubusercontent.com/60806047/147424968-ca779742-d0c6-4ccf-bdba-1ae862d78cc9.JPG)
+
+- 런서버 실행하고, DjDT이라는 툴바가 보입니다!!!
+
+![디버그를 통한 SQL 디버그_7](https://user-images.githubusercontent.com/60806047/147424982-fda59adc-d999-4998-b9b0-fd0481878348.JPG)
+
+- 누르면 여러가지 글이 볼 수 있고
+
+![디버그를 통한 SQL 디버그_8](https://user-images.githubusercontent.com/60806047/147424989-7d28ea25-ac42-48d8-8bd3-ccb2ace7ca11.JPG)
+
+- SQL 관련건 볼 수 있는데 아주아주 편하는 기능이 있어서 좋습니다!
+
+# 코드를 통한 SQL 내역 확인하는 방법
+- QuerySet의 query 속성 참조
+  - ex) print(Post.objects.all().query) : 실제 문자열 참조 시에 SQL 생성함
+- settings.DEBUG = True시에만 쿼리 실행내역을 메모리에 누적
+
+<pre>
+<code>
+from django.db import connection, connections
+for row_dict in connection.queries:
+  print('{time} {sql}'.format(**row_dict))
+  
+ connectins['default'].queries
+</code>
+</pre>
+
+- 쿼리 초기화 : 메모리에 누적되기 때문에, 프로세스가 재시작되면 초기화 가능 또는 django.db.reset_queryes() 통해서 수동 초기화도 가능함!!
+
+
+
